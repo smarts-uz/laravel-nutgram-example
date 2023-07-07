@@ -26,6 +26,13 @@ use App\Telegram\Middleware\SetLocale;
 use App\Telegram\Middleware\Throttle;
 use App\Telegram\Commands\MapCommand;
 use SergiX44\Nutgram\Nutgram;
+use App\Telegram\SendingRequest\SendVideo;
+use App\Telegram\SendingRequest\SendAudio;
+use App\Telegram\SendingRequest\SendMessage;
+use App\Telegram\SendingRequest\SendPhoto;
+use App\Telegram\SendingRequest\SendDocument;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +80,11 @@ $bot->onCommand('about', AboutCommand::class)->description('About the bot');
 $bot->onCommand('privacy', PrivacyCommand::class)->description('Privacy Policy');
 $bot->onCommand('cancel', CancelCommand::class)->description('Close a conversation or a keyboard');
 
+$bot->onCommand('audio', SendAudio::class)->description('Sending audio');
+$bot->onCommand('message', SendMessage::class)->description('Sending message');
+$bot->onCommand('video', SendVideo::class)->description('Sending video');
+$bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
+$bot->onCommand('doc', SendDocument::class)->description('Sending document');
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
