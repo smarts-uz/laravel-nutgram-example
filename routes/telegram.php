@@ -77,7 +77,7 @@ $bot->onCommand('start', function(Nutgram $bot){
     $bot->sendMessage('Welcome!', [
         'reply_markup' => ForceReply::make(
             force_reply: true,
-            input_field_placeholder: 'woiwwroowrkwokwiwoeiwoei',
+            input_field_placeholder: 'sdosiwoeiwoeiwoei',
             selective: true,
         ),
     ]);
