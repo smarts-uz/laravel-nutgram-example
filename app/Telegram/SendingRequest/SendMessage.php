@@ -7,8 +7,7 @@ class SendMessage
 {
     public function __invoke(Nutgram $bot)
     {
-        $user_id = 1153216;
-        $bot->sendMessage('Some message', ['chat_id' => $user_id]);
+        $bot->sendMessage('Some message');
     }
 }
 
