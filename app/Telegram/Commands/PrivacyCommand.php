@@ -24,6 +24,6 @@ class PrivacyCommand
 
     public function maps()
     {
-        $bot->TextAnswer('See the map of all coffee shops on the site https://specialtycoffee.cy');
+        $bot->TextAnswer('See the map of all coffee shops on the site ');
     }
 }

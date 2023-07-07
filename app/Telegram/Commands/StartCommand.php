@@ -4,6 +4,7 @@ namespace App\Telegram\Commands;
 
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
+use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
 
 class StartCommand
 {
@@ -14,8 +15,14 @@ class StartCommand
         ]);
 
         stats('start', 'command');
-        $bot->onMessage('my name is ', function (Nutgram $bot) {
-            $bot->sendMessage("Hi You are");
+
+        $bot->onMessageType(MessageTypes::PHOTO, function (Nutgram $bot) {
+            $photos = $bot->message()->photo;
+            $bot->sendMessage('Nice pic!');
+        });
+
+        $bot->onText('I want ([0-9]+) pizzas', function (Nutgram $bot, $n) {
+            $bot->sendMessage("You will get {$n} pizzas!");
         });
     }
 }

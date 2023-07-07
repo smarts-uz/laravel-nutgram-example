@@ -7,6 +7,7 @@ use App\Telegram\Commands\AboutCommand;
 use App\Telegram\Commands\CancelCommand;
 use App\Telegram\Commands\HelpCommand;
 use App\Telegram\Commands\PrivacyCommand;
+use App\Telegram\Commands\OrderCommand;
 use App\Telegram\Commands\StartCommand;
 use App\Telegram\Commands\StatsCommand;
 use App\Telegram\Conversations\DonateConversation;
@@ -16,6 +17,7 @@ use App\Telegram\Handlers\DocumentHandler;
 use App\Telegram\Handlers\ExceptionsHandler;
 use App\Telegram\Handlers\PhotoHandler;
 use App\Telegram\Handlers\PreCheckoutQueryHandler;
+use SergiX44\Nutgram\Handlers\Type\Command;
 use App\Telegram\Handlers\StickerHandler;
 use App\Telegram\Handlers\SuccessfulPaymentHandler;
 use App\Telegram\Handlers\UpdateChatStatusHandler;
@@ -26,6 +28,12 @@ use App\Telegram\Middleware\SetLocale;
 use App\Telegram\Middleware\Throttle;
 use App\Telegram\Commands\MapCommand;
 use SergiX44\Nutgram\Nutgram;
+use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
+use SergiX44\Nutgram\Telegram\Attributes\UpdateTypes;
+use SergiX44\Nutgram\Conversations\Conversation;
+use SergiX44\Nutgram\Telegram\Exceptions\TelegramException;
+use SergiX44\Nutgram\Telegram\Types\Keyboard\InlineKeyboardButton;
+use SergiX44\Nutgram\Telegram\Types\Keyboard\InlineKeyboardMarkup;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,16 +70,14 @@ $bot->onCommand('start', StartCommand::class)->description('Welcome message');
 $bot->onCommand('help', HelpCommand::class)->description('Help message');
 $bot->onCommand('settings', SettingsConversation::class)->description('Bot Settings');
 
-if (config('donation.enabled')) {
-    $bot->onCommand('donate', DonateConversation::class)->description('Make a donation');
-    $bot->onCommand('start donate', DonateConversation::class);
-}
+
 
 $bot->onCommand('stats', StatsCommand::class)->description('Show bot statistics');
 $bot->onCommand('feedback', FeedbackConversation::class)->description('Send a feedback about the bot');
 $bot->onCommand('about', AboutCommand::class)->description('About the bot');
 $bot->onCommand('privacy', PrivacyCommand::class)->description('Privacy Policy');
 $bot->onCommand('cancel', CancelCommand::class)->description('Close a conversation or a keyboard');
+$bot->onCommand('order', OrderCommand::class)->description('Order something');
 
 /*
 |--------------------------------------------------------------------------
@@ -90,4 +96,5 @@ $bot->onApiError([ExceptionsHandler::class, 'api']);
 $bot->onException([ExceptionsHandler::class, 'global']);
 
 
-$bot->onCommand('map', PrivacyCommand::class)->description('The map');
+
+
