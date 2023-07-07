@@ -34,6 +34,7 @@ use App\Telegram\SendingRequest\SendAudio;
 use App\Telegram\SendingRequest\SendMessage;
 use App\Telegram\SendingRequest\SendPhoto;
 use App\Telegram\SendingRequest\SendDocument;
+use App\Telegram\SendingRequest\SendSticker;
 
 
 
@@ -88,6 +89,7 @@ $bot->onCommand('message', SendMessage::class)->description('Sending message');
 $bot->onCommand('video', SendVideo::class)->description('Sending video');
 $bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
 $bot->onCommand('doc', SendDocument::class)->description('Sending document');
+$bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
