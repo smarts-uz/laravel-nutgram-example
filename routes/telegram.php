@@ -91,8 +91,12 @@ $bot->onCommand('video', SendVideo::class)->description('Sending video');
 $bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
 $bot->onCommand('doc', SendDocument::class)->description('Sending document');
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
+<<<<<<< HEAD
 
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
+=======
+$bot->onCommand('voice', SendVoice::class)->description('Sending voice');
+>>>>>>> 5e176d3dad1854b80c974eae71ba96c8f44de27d
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
