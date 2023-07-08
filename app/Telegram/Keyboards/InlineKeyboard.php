@@ -17,26 +17,26 @@ class InlineKeyboard
 
         ////////  Inline Keyboard /////////
 
-//            $bot->sendMessage('Welcome!', [
-//                'reply_markup' => InlineKeyboardMarkup::make()
-//                    ->addRow(
-//                        InlineKeyboardButton::make('A', callback_data: 'type:a'),
-//                        InlineKeyboardButton::make('B', callback_data: 'type:b')
-//                    )
-//            ]);
-//
-//
-//        $bot->onCallbackQueryData('type:a', function(Nutgram $bot){
-//            $bot->answerCallbackQuery([
-//                'text' => 'You selected A'
-//            ]);
-//        });
-//
-//        $bot->onCallbackQueryData('type:b', function(Nutgram $bot){
-//            $bot->answerCallbackQuery([
-//                'text' => 'You selected B'
-//            ]);
-//        });
+            $bot->sendMessage('Welcome!', [
+                'reply_markup' => InlineKeyboardMarkup::make()
+                    ->addRow(
+                        InlineKeyboardButton::make('A', callback_data: 'type:a'),
+                        InlineKeyboardButton::make('B', callback_data: 'type:b')
+                    )
+            ]);
+
+
+        $bot->onCallbackQueryData('type:a', function(Nutgram $bot){
+            $bot->answerCallbackQuery([
+                'text' => 'You selected A'
+            ]);
+        });
+
+        $bot->onCallbackQueryData('type:b', function(Nutgram $bot){
+            $bot->answerCallbackQuery([
+                'text' => 'You selected B'
+            ]);
+        });
 
     }
 

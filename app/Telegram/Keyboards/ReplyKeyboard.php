@@ -23,11 +23,11 @@ class ReplyKeyboard
             ]);
 
         $bot->onText('Give me food!', function (Nutgram $bot) {
-            $bot->sendMessage('Apple!');
+            $bot->sendMessage('watermelon!');
         });
 
         $bot->onText('Give me animal!', function (Nutgram $bot) {
-            $bot->sendMessage('Dog!');
+            $bot->sendMessage('cat!');
         });
 
     }
