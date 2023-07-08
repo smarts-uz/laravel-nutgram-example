@@ -17,6 +17,8 @@ use App\Telegram\Handlers\DocumentHandler;
 use App\Telegram\Handlers\ExceptionsHandler;
 use App\Telegram\Handlers\PhotoHandler;
 use App\Telegram\Handlers\PreCheckoutQueryHandler;
+use App\Telegram\Keyboards\KeyboardMenu;
+use App\Telegram\Keyboards\OrderKeyboards;
 use SergiX44\Nutgram\Handlers\Type\Command;
 use App\Telegram\Handlers\StickerHandler;
 use App\Telegram\Handlers\SuccessfulPaymentHandler;
@@ -90,6 +92,9 @@ $bot->onCommand('video', SendVideo::class)->description('Sending video');
 $bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
 $bot->onCommand('doc', SendDocument::class)->description('Sending document');
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
+
+$bot->onCommand('keyboard', KeyboardMenu::class)->description('Type something');
+$bot->onCommand('orderKeyboard', OrderKeyboards::class)->description('Order something');
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
