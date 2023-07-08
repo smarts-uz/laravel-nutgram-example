@@ -38,6 +38,8 @@ use App\Telegram\SendingRequest\SendSticker;
 use App\Telegram\SendingRequest\SendHelloMessage;
 use App\Telegram\SendingRequest\SendVoice;
 
+use App\Telegram\Commands\FileCommands\VideoCommands;
+
 
 use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
 use SergiX44\Nutgram\Telegram\Attributes\UpdateTypes;
@@ -94,6 +96,12 @@ $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
 
 $bot->onCommand('voice', SendVoice::class)->description('Sending voice');
 $bot->onCommand('hello', SendHelloMessage::class)->description('Sending hello message');
+
+
+// File Commands
+
+$bot->onVideo(VideoCommands::class);
+
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
