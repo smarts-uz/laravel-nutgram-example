@@ -90,6 +90,7 @@ $bot->onCommand('video', SendVideo::class)->description('Sending video');
 $bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
 $bot->onCommand('doc', SendDocument::class)->description('Sending document');
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
+$bot->onCommand('voice', SendVoice::class)->description('Sending voice');
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
