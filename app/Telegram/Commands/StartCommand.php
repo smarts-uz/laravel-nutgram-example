@@ -10,6 +10,7 @@ class StartCommand
 {
     public function __invoke(Nutgram $bot): void
     {
+
         $bot->sendMessage(('Hello world'), [
 
         ]);

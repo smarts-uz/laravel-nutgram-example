@@ -17,8 +17,12 @@ use App\Telegram\Handlers\DocumentHandler;
 use App\Telegram\Handlers\ExceptionsHandler;
 use App\Telegram\Handlers\PhotoHandler;
 use App\Telegram\Handlers\PreCheckoutQueryHandler;
-use App\Telegram\Keyboards\KeyboardMenu;
-use App\Telegram\Keyboards\OrderKeyboards;
+use App\Telegram\Keyboards\ForceReplyKeyboard;
+use App\Telegram\Keyboards\InlineKeyboard;
+use App\Telegram\Keyboards\InlineMenu;
+use App\Telegram\Keyboards\OptionalKeyboard;
+use App\Telegram\Keyboards\RemoveKeyboard;
+use App\Telegram\Keyboards\ReplyKeyboard;
 use SergiX44\Nutgram\Handlers\Type\Command;
 use App\Telegram\Handlers\StickerHandler;
 use App\Telegram\Handlers\SuccessfulPaymentHandler;
@@ -37,9 +41,8 @@ use App\Telegram\SendingRequest\SendMessage;
 use App\Telegram\SendingRequest\SendPhoto;
 use App\Telegram\SendingRequest\SendDocument;
 use App\Telegram\SendingRequest\SendSticker;
-use App\Telegram\SendingRequest\SendLocation;
-use App\Telegram\SendingRequest\SendContact;
-use App\Telegram\SendingRequest\FormattingOptions;
+
+
 
 use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
 use SergiX44\Nutgram\Telegram\Attributes\UpdateTypes;
@@ -93,15 +96,14 @@ $bot->onCommand('video', SendVideo::class)->description('Sending video');
 $bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
 $bot->onCommand('doc', SendDocument::class)->description('Sending document');
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
-$bot->onCommand('maps', Sendlocation::class)->description('Sendinglocation');
-$bot->onCommand('contact', SendContact::class)->description('SendiingContact');
-$bot->onCommand('k', FormattingOptions::class)->description('FormattingOptions');
 
-
-
-
-$bot->onCommand('keyboard', KeyboardMenu::class)->description('Type something');
-$bot->onCommand('orderKeyboard', OrderKeyboards::class)->description('Order something');
+//// Keyboards //////
+$bot->onCommand('inlineMenu', InlineMenu::class)->description('Type something');
+$bot->onCommand('forceReply', ForceReplyKeyboard::class)->description('Type something');
+$bot->onCommand('removeKeyboard', RemoveKeyboard::class)->description('Type something');
+$bot->onCommand('optionalKeyboard', OptionalKeyboard::class)->description('Type something');
+$bot->onCommand('replyKeyboard', ReplyKeyboard::class)->description('Type something');
+$bot->onCommand('inlineKeyboard', InlineKeyboard::class)->description('Type something');
 
 /*
 |--------------------------------------------------------------------------
