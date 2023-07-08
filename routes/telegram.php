@@ -39,7 +39,7 @@ use App\Telegram\SendingRequest\SendHelloMessage;
 use App\Telegram\SendingRequest\SendVoice;
 
 use App\Telegram\Commands\FileCommands\VideoCommands;
-
+use App\Telegram\Commands\FileCommands\PhotoCommands;
 
 use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
 use SergiX44\Nutgram\Telegram\Attributes\UpdateTypes;
@@ -101,7 +101,7 @@ $bot->onCommand('hello', SendHelloMessage::class)->description('Sending hello me
 // File Commands
 
 $bot->onVideo(VideoCommands::class);
-
+$bot->onPhoto(PhotoCommands::class);
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
