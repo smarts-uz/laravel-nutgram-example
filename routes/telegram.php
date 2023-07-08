@@ -99,7 +99,7 @@ $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
 
 //// Keyboards //////
 $bot->onCommand('inlineMenu', InlineMenu::class)->description('Type something');
-$bot->onCommand('forceReply', ForceReplyKeyboard::class)->description('Type something');
+$bot->onCommand('', ForceReplyKeyboard::class)->description('Type something');
 $bot->onCommand('removeKeyboard', RemoveKeyboard::class)->description('Type something');
 $bot->onCommand('optionalKeyboard', OptionalKeyboard::class)->description('Type something');
 $bot->onCommand('replyKeyboard', ReplyKeyboard::class)->description('Type something');
