@@ -38,6 +38,7 @@ use App\Telegram\SendingRequest\SendPhoto;
 use App\Telegram\SendingRequest\SendDocument;
 use App\Telegram\SendingRequest\SendSticker;
 use App\Telegram\SendingRequest\SendLocation;
+use App\Telegram\SendingRequest\SendContact;
 
 
 use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
@@ -92,14 +93,16 @@ $bot->onCommand('video', SendVideo::class)->description('Sending video');
 $bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
 $bot->onCommand('doc', SendDocument::class)->description('Sending document');
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
-<<<<<<< HEAD
 $bot->onCommand('maps', Sendlocation::class)->description('Sendinglocation');
+$bot->onCommand('contact', SendContact::class)->description('SendiingContact');
 
-=======
+
+
+
 
 $bot->onCommand('keyboard', KeyboardMenu::class)->description('Type something');
 $bot->onCommand('orderKeyboard', OrderKeyboards::class)->description('Order something');
->>>>>>> 6beb5222717e38562bad1f2e24f9bc0bbbbec035
+
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
