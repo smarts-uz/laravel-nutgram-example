@@ -22,5 +22,10 @@ class FormattingOptions
             'chat_id' => -1001967077504,
             'parse_mode' => ParseMode::MARKDOWN,
         ]);
+
+        $message = $bot->sendMessage('<b>Hi</b>, Xusan', [
+          'chat_id' => -1001967077504,
+          'parse_mode' => ParseMode::HTML,
+        ]);
     }
 }
