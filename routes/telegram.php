@@ -39,7 +39,7 @@ use App\Telegram\SendingRequest\SendDocument;
 use App\Telegram\SendingRequest\SendSticker;
 use App\Telegram\SendingRequest\SendLocation;
 use App\Telegram\SendingRequest\SendContact;
-
+use App\Telegram\SendingRequest\FormattingOptions;
 
 use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
 use SergiX44\Nutgram\Telegram\Attributes\UpdateTypes;
@@ -95,7 +95,7 @@ $bot->onCommand('doc', SendDocument::class)->description('Sending document');
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
 $bot->onCommand('maps', Sendlocation::class)->description('Sendinglocation');
 $bot->onCommand('contact', SendContact::class)->description('SendiingContact');
-
+$bot->onCommand('k', FormattingOptions::class)->description('FormattingOptions');
 
 
 
