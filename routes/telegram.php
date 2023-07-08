@@ -35,7 +35,7 @@ use App\Telegram\SendingRequest\SendMessage;
 use App\Telegram\SendingRequest\SendPhoto;
 use App\Telegram\SendingRequest\SendDocument;
 use App\Telegram\SendingRequest\SendSticker;
-
+use App\Telegram\SendingRequest\SendLocation;
 
 
 use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
@@ -90,6 +90,8 @@ $bot->onCommand('video', SendVideo::class)->description('Sending video');
 $bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
 $bot->onCommand('doc', SendDocument::class)->description('Sending document');
 $bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
+$bot->onCommand('maps', Sendlocation::class)->description('Sendinglocation');
+
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
