@@ -19,6 +19,7 @@ use App\Telegram\Handlers\ExceptionsHandler;
 use App\Telegram\Handlers\PhotoHandler;
 use App\Telegram\Handlers\MultimediaHandler;
 use App\Telegram\Handlers\PreCheckoutQueryHandler;
+use App\Telegram\InlineMenu\ChooseColorMenu;
 use SergiX44\Nutgram\Handlers\Type\Command;
 use App\Telegram\Handlers\StickerHandler;
 use App\Telegram\Handlers\SuccessfulPaymentHandler;
@@ -92,6 +93,7 @@ $bot->onCommand('about', AboutCommand::class)->description('About the bot');
 $bot->onCommand('cancel', CancelCommand::class)->description('Close a conversation or a keyboard');
 $bot->onText('Multimedia', MultimediaHandler::class);
 $bot->onText('Contacts', SendContact::class);
+$bot->onCommand('chooseColorText', ChooseColorMenu::class);
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
