@@ -9,7 +9,7 @@
     use SergiX44\Nutgram\Telegram\Types\Keyboard\InlineKeyboardButton;
     use SergiX44\Nutgram\Telegram\Types\Keyboard\InlineKeyboardMarkup;
 
-    class KeyboardMenu
+    class InlineMenu
     {
         public function __invoke(Nutgram $bot)
         {

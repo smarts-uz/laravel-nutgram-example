@@ -19,7 +19,16 @@ use App\Telegram\Handlers\ExceptionsHandler;
 use App\Telegram\Handlers\PhotoHandler;
 use App\Telegram\Handlers\MultimediaHandler;
 use App\Telegram\Handlers\PreCheckoutQueryHandler;
+<<<<<<< HEAD
 use App\Telegram\InlineMenu\ChooseColorMenu;
+=======
+use App\Telegram\Keyboards\ForceReplyKeyboard;
+use App\Telegram\Keyboards\InlineKeyboard;
+use App\Telegram\Keyboards\InlineMenu;
+use App\Telegram\Keyboards\OptionalKeyboard;
+use App\Telegram\Keyboards\RemoveKeyboard;
+use App\Telegram\Keyboards\ReplyKeyboard;
+>>>>>>> 27349c025ee7de7ccbf1563dacd910fabcd307f3
 use SergiX44\Nutgram\Handlers\Type\Command;
 use App\Telegram\Handlers\StickerHandler;
 use App\Telegram\Handlers\SuccessfulPaymentHandler;
@@ -91,9 +100,33 @@ $bot->onText('Location', SendLocation::class);
 $bot->onCommand('about', AboutCommand::class)->description('About the bot');
 //$bot->onCommand('privacy', PrivacyCommand::class)->description('Privacy Policy');
 $bot->onCommand('cancel', CancelCommand::class)->description('Close a conversation or a keyboard');
+<<<<<<< HEAD
 $bot->onText('Multimedia', MultimediaHandler::class);
 $bot->onText('Contacts', SendContact::class);
 $bot->onCommand('chooseColorText', ChooseColorMenu::class);
+=======
+
+$bot->onText('Multimedia', MultimediaHandler::class);
+$bot->onText('Contacts', SendContact::class);
+
+$bot->onCommand('order', OrderCommand::class)->description('Order something');
+
+$bot->onCommand('audio', SendAudio::class)->description('Sending audio');
+$bot->onCommand('message', SendMessage::class)->description('Sending message');
+$bot->onCommand('video', SendVideo::class)->description('Sending video');
+$bot->onCommand('photo', SendPhoto::class)->description('Sending photo');
+$bot->onCommand('doc', SendDocument::class)->description('Sending document');
+$bot->onCommand('sticker', SendSticker::class)->description('Sending sticker');
+
+//// Keyboards //////
+$bot->onCommand('inlineMenu', InlineMenu::class)->description('Type something');
+$bot->onCommand('', ForceReplyKeyboard::class)->description('Type something');
+$bot->onCommand('removeKeyboard', RemoveKeyboard::class)->description('Type something');
+$bot->onCommand('optionalKeyboard', OptionalKeyboard::class)->description('Type something');
+$bot->onCommand('replyKeyboard', ReplyKeyboard::class)->description('Type something');
+$bot->onCommand('inlineKeyboard', InlineKeyboard::class)->description('Type something');
+
+>>>>>>> 27349c025ee7de7ccbf1563dacd910fabcd307f3
 /*
 |--------------------------------------------------------------------------
 | Exception handlers
