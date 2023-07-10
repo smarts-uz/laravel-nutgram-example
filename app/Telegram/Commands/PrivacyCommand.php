@@ -22,8 +22,5 @@ class PrivacyCommand
         stats('privacy', 'command');
     }
 
-    public function maps()
-    {
-        $bot->TextAnswer('See the map of all coffee shops on the site ');
-    }
+   
 }

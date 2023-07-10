@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'Privacy Policy',
-    'description' => 'Leggi la privacy policy cliccando il bottone in basso.',
+    'title' => 'Qoidalar',
+    'description' => 'Rozilik berishdan oldin qoidalarni oqing',
 
 ];

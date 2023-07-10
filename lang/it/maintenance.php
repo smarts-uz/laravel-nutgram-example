@@ -2,8 +2,8 @@
 
 return [
 
-    'title' => 'Bot in manutenzione.',
-    'back' => 'Tornerà presto online!',
+    'title' => 'Bot test formatda',
+    'back' => 'Keyinroq qaytamiz!',
     'offline' => 'Bot offline.',
 
 ];

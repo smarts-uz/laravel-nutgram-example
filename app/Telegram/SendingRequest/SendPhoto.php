@@ -8,7 +8,7 @@ class SendPhoto
     public function __invoke(Nutgram $bot)
     {
 
-        $voice = fopen('storage/app/public/files/6.jfif', 'r+');
+        $voice = fopen('public/img/logo.png', 'r+');
         $bot->sendPhoto($voice);
     }
 }

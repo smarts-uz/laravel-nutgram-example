@@ -7,7 +7,7 @@ class SendDocument
 {
     public function __invoke(Nutgram $bot)
     {
-        $doc = fopen('storage/app/public/files/slovar.txt', 'r+');
+        $doc = fopen('public/Eloquentdars.docx', 'r+');
         $bot->sendDocument($doc);
     }
 }

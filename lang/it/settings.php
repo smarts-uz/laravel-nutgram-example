@@ -2,29 +2,29 @@
 
 return [
 
-    'back' => '🔙 Indietro',
-    'description' => 'Qui puoi cambiare le impostazioni del bot.',
-    'disable_news' => '📰 Disabilita news',
-    'disabled' => '❌ Disabilitato',
-    'enable_news' => '📰 Abilita news',
-    'enabled' => '✅ Abilitato',
+    'back' => '🔙 Orqaga',
+    'description' => 'Sozlamalarni ornatish',
+    'disable_news' => '📰 Xabarlarni ochirish',
+    'disabled' => '❌ Ochirildi',
+    'enable_news' => '📰 Xabarlarni yoqish',
+    'enabled' => '✅ Yoqildi',
     'language' => [
-        'click' => 'Clicca qui',
-        'description' => 'Qui puoi cambiare la lingua del bot.',
-        'more' => 'Vuoi altre lingue?',
-        'title' => '💬 Lingua',
+        'click' => 'Sozlash',
+        'description' => 'Bot sozlamalarini sozlang',
+        
+        'title' => '💬 Til',
     ],
-    'news' => '📰 News',
-    'title' => '⚙️ Impostazioni',
+    'news' => '📰 Xabarlar',
+    'title' => '⚙️ Sozlamalar',
     'watermark' => [
         'title' => '🔏 Watermark',
-        'description' => 'Proteggi i tuoi sticker con un watermark.',
+        'description' => 'Protect your stickers with a watermark.',
     ],
     'template' => [
         'title' => '🖼 Template: :type',
         'sticker' => 'Sticker',
-        'icon' => 'Icona',
-        'change' => '🖼 Cambia template',
+        'icon' => 'Icon',
+        'change' => '🖼 Change template',
     ],
 
 ];
