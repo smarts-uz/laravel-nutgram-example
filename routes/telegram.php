@@ -8,6 +8,7 @@ use App\Telegram\Commands\CancelCommand;
 use App\Telegram\Commands\HelpCommand;
 use App\Telegram\Commands\PrivacyCommand;
 use App\Telegram\Commands\OrderCommand;
+use App\Telegram\Commands\AdminCommand;
 use App\Telegram\Commands\StartCommand;
 use App\Telegram\Commands\StatsCommand;
 use App\Telegram\Conversations\DonateConversation;
@@ -16,6 +17,7 @@ use App\Telegram\Conversations\SettingsConversation;
 use App\Telegram\Handlers\DocumentHandler;
 use App\Telegram\Handlers\ExceptionsHandler;
 use App\Telegram\Handlers\PhotoHandler;
+use App\Telegram\Handlers\MultimediaHandler;
 use App\Telegram\Handlers\PreCheckoutQueryHandler;
 use App\Telegram\Keyboards\ForceReplyKeyboard;
 use App\Telegram\Keyboards\InlineKeyboard;
@@ -37,10 +39,14 @@ use SergiX44\Nutgram\Nutgram;
 
 use App\Telegram\SendingRequest\SendVideo;
 use App\Telegram\SendingRequest\SendAudio;
+use App\Telegram\SendingRequest\SendVoice;
 use App\Telegram\SendingRequest\SendMessage;
 use App\Telegram\SendingRequest\SendPhoto;
 use App\Telegram\SendingRequest\SendDocument;
 use App\Telegram\SendingRequest\SendSticker;
+use  App\Telegram\SendingRequest\SendLocation;
+use  App\Telegram\SendingRequest\SendContact;
+use App\Telegram\Handlers\OnDoc;
 
 
 
@@ -77,17 +83,23 @@ $bot->onSuccessfulPayment(SuccessfulPaymentHandler::class);
 |--------------------------------------------------------------------------
 */
 
+
 $bot->onCommand('start', StartCommand::class)->description('Welcome message');
-$bot->onCommand('help', HelpCommand::class)->description('Help message');
-$bot->onCommand('settings', SettingsConversation::class)->description('Bot Settings');
+ $bot->onText('Introduction', HelpCommand::class);
+$bot->onText('Settings', SettingsConversation::class);
 
 
 
-$bot->onCommand('stats', StatsCommand::class)->description('Show bot statistics');
-$bot->onCommand('feedback', FeedbackConversation::class)->description('Send a feedback about the bot');
+$bot->onText('Statistics', StatsCommand::class);
+$bot->onText('Feedback', FeedbackConversation::class);
+$bot->onText('Location', SendLocation::class);
 $bot->onCommand('about', AboutCommand::class)->description('About the bot');
-$bot->onCommand('privacy', PrivacyCommand::class)->description('Privacy Policy');
+//$bot->onCommand('privacy', PrivacyCommand::class)->description('Privacy Policy');
 $bot->onCommand('cancel', CancelCommand::class)->description('Close a conversation or a keyboard');
+
+$bot->onText('Multimedia', MultimediaHandler::class);
+$bot->onText('Contacts', SendContact::class);
+
 $bot->onCommand('order', OrderCommand::class)->description('Order something');
 
 $bot->onCommand('audio', SendAudio::class)->description('Sending audio');
@@ -123,4 +135,6 @@ $bot->onException([ExceptionsHandler::class, 'global']);
 
 
 
-$bot->onCommand('map', PrivacyCommand::class)->description('The map');
+
+
+

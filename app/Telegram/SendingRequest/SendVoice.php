@@ -8,7 +8,7 @@ class SendVoice
 {
     public function __invoke(Nutgram $bot)
     {
-        $voice = fopen("storage/app/public/files/a1.mp3", 'r+');
+        $voice = fopen("public/1.mp3", 'r+');
         $bot->sendVoice($voice);
     }
 }

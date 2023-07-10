@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Exception\InvalidArgumentException;
 use Intervention\Image\Exception\NotReadableException;
 use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Document;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Attributes\ChatActions;
 use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
@@ -63,7 +64,7 @@ class OptimizeStickerJob implements ShouldQueue
 
             //check if file exists
             if ($file === null) {
-                throw new InvalidArgumentException('Invalid file');
+                throw new InvalidArgumentException('In');
             }
 
             //set sending status
@@ -89,8 +90,8 @@ class OptimizeStickerJob implements ShouldQueue
             $image->filter(WatermarkFilter::make($chatSettings));
 
             //compress image
-            $ext = 'png';
-            $stream = $image->stream('png');
+            $ext = ['png','doc','jpg','json'];
+            $stream = $image->stream(['png','doc','jpg','json']);
             if ($stream->getSize() > TelegramLimit::STICKER_MAX_SIZE->value) {
                 $quality = 100;
                 do {
@@ -100,17 +101,7 @@ class OptimizeStickerJob implements ShouldQueue
                 $ext = 'webp';
             }
 
-            //send optimized image
-            $bot->sendDocument(InputFile::make($stream->detach(), Str::uuid().'.'.$ext), [
-                'caption' => message('donate.caption'),
-                'parse_mode' => ParseMode::HTML,
-                'chat_id' => $this->chatID,
-                'reply_to_message_id' => $this->replyID,
-                'allow_sending_without_reply' => true,
-            ]);
 
-            //save statistic
-            stats('sticker', 'optimized');
 
         } catch (TooLargeFileException $e) {
             $bot->sendMessage($e->getMessage(), [
@@ -119,7 +110,7 @@ class OptimizeStickerJob implements ShouldQueue
                 'allow_sending_without_reply' => true,
             ]);
         } catch (Throwable) {
-            $bot->sendMessage(trans('common.invalid_file'));
+            $bot->sendMessage(trans('Nice document'));
         }
     }
 }

@@ -1,0 +1,26 @@
+<?php
+
+
+namespace App\Telegram\Commands;
+
+use SergiX44\Nutgram\Nutgram;
+use SergiX44\Nutgram\Conversations\Conversation;
+use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
+use SergiX44\Nutgram\Telegram\Types\Message\Message;
+use SergiX44\Nutgram\Telegram\Types\Media\File;
+use App\Telegram\Commands\Exception;
+use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
+use SergiX44\Nutgram\Telegram\Exceptions\TelegramException;
+use SergiX44\Nutgram\Telegram\Types\Keyboard\InlineKeyboardButton;
+use SergiX44\Nutgram\Telegram\Types\Keyboard\InlineKeyboardMarkup;
+
+class AdminCommand
+{
+    public function __invoke(Nutgram $bot): void
+    {
+        $bot->sendMessage('Working' );
+
+       
+   
+    }
+}

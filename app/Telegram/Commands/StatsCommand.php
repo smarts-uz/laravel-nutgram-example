@@ -5,6 +5,7 @@ namespace App\Telegram\Commands;
 use Illuminate\Support\Facades\Cache;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
+use App\Models\Chat;
 
 class StatsCommand
 {
@@ -20,7 +21,7 @@ class StatsCommand
 
     protected function getMessage(): string
     {
-        $data = Cache::get('stats');
+        $data = Chat::get('chat_id');
 
         if ($data === null) {
             return message('stats.empty');
